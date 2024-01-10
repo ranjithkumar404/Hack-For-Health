@@ -25,7 +25,7 @@ const Home = () => {
         <div className='flex  items-center relative justify-center'>
           <FaHeart className='text-xl z-30 absolute left-[90px] text-red-700' size={45}  />
           <div className='bg-white z-10  border-[3px] border-black w-[220px]  rounded-md h-[30px]'></div>
-          <div style={{width:`${progress}px`}} className='bg-red-600 rounded-l-md z-20 absolute  h-[25px]  left-[108px]'>
+          <div style={{width:`${progress}px`}} className='bg-red-600 rounded-l-md z-20 absolute  h-[25px] duration-300  left-[108px]'>
 
           </div>
           </div>
