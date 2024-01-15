@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { FaHeart } from 'react-icons/fa';
 import axios from 'axios';
-
+import { IoMdHelpCircleOutline } from "react-icons/io";
 const Home = () => {
   const [cal, setCal] = useState('');
   const [calFat, setCalFat] = useState('');
@@ -71,6 +72,7 @@ const Home = () => {
     <div className='flex flex-col space-y-10 justify-center items-center'>
       <div className='text-center text-[50px]'>
         <h1 className='head '>HEALTH BAR</h1>
+       <Link to='/help'> <IoMdHelpCircleOutline className='fixed animate-bounce top-[5%] left-[87%]' /></Link>
         <div className='flex  items-center relative justify-center'>
           <FaHeart className='text-xl z-30 absolute left-[95px] text-red-700' size={45} />
           <div className='bg-white z-10  border-[3px] border-black w-[220px]  rounded-md h-[30px]'></div>
@@ -83,14 +85,14 @@ const Home = () => {
        <div className='grid  place-items-center gap-3   md:flex md:space-x-5'>
        <input
           className='bg-blue-400 focus:outline-none p-5 rounded-md placeholder-white w-[300px]  h-[50px]'
-          placeholder='Enter the calories'
+          placeholder='Enter the calories in kcal'
           value={cal} required
           onChange={(e) => setCal(e.target.value)}
           type='number'
         />
         <input
           className='bg-blue-400 focus:outline-none p-5 rounded-md placeholder-white w-[300px]  h-[50px]'
-          placeholder='Enter the cal_fat'
+          placeholder='Enter  the calories from fat in kcal'
           value={calFat} required
           onChange={(e) => setCalFat(e.target.value)}
           type='number'
@@ -99,14 +101,14 @@ const Home = () => {
        <div className='grid  place-items-center gap-3   md:flex md:space-x-5'>
        <input
           className='bg-blue-400 focus:outline-none p-5 rounded-md placeholder-white w-[300px]  h-[50px]'
-          placeholder='Enter the saturated_fat'
+          placeholder='Enter the Saturated Fat in grams'
           value={sat} required
           onChange={(e) => setSat(e.target.value)}
           type='number'
         />
         <input
           className='bg-blue-400 focus:outline-none p-5 rounded-md placeholder-white w-[300px]  h-[50px]'
-          placeholder='Enter the trans_fat'
+          placeholder='Enter the Trans Fat in grams'
           value={tran} required
           onChange={(e) => setTran(e.target.value)}
           type='number'
@@ -115,14 +117,14 @@ const Home = () => {
      <div className='grid  place-items-center gap-3   md:flex md:space-x-5'>
      <input
           className='bg-blue-400 focus:outline-none p-5 rounded-md placeholder-white w-[300px]  h-[50px]'
-          placeholder='Enter the cholesterol'
+          placeholder='Enter the Cholesterol in milliograms'
           value={chol} required
           onChange={(e) => setChol(e.target.value)}
           type='number'
         />
         <input
           className='bg-blue-400 focus:outline-none p-5 rounded-md placeholder-white w-[300px]  h-[50px]'
-          placeholder='Enter the sodium'
+          placeholder='Enter the Sodium in milligrams'
           value={sodium} required
           onChange={(e) => setSodium(e.target.value)}
           type='number'
@@ -131,7 +133,7 @@ const Home = () => {
        <div className='grid  place-items-center gap-3   md:flex md:space-x-5'>
          <input
           className='bg-blue-400 focus:outline-none p-5 rounded-md placeholder-white w-[300px]  h-[50px]'
-          placeholder='Enter the total_carb'
+          placeholder='Enter the total_carb in grams'
           value={carb} required
           onChange={(e) => setCarb(e.target.value)}
           type='number'
