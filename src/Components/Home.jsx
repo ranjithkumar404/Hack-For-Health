@@ -26,7 +26,15 @@ const Home = () => {
   }, [progress]); 
   const submit = (e) => {
     e.preventDefault();
-
+    if (!cal || !calFat || !sat || !tran || !chol || !sodium || !carb) {
+      alert('Please fill in all required fields.');
+      return;
+    }
+    if ( cal < 0 ||calFat < 0 || sat < 0 || tran< 0 ||chol < 0 ||  sodium < 0 ||  carb < 0
+    ) {
+      alert('Please enter non-negative values for all fields.');
+      return;
+    }
     const calValue = parseInt(cal, 10);
     const calFatValue = parseInt(calFat, 10);
     const satFatValue = parseInt(sat, 10);
@@ -51,6 +59,7 @@ const Home = () => {
 
         // Set the result in the state
         setResult(response.data);
+        
       })
       .catch((error) => {
         console.error('Error submitting data:', error);
@@ -71,67 +80,80 @@ const Home = () => {
         <p>Say no more, WE GOT THIS!!</p>
       </div>
       <div className='text-[20px] flex flex-col space-y-3'>
-        <input
+       <div className='grid  place-items-center gap-3   md:flex md:space-x-5'>
+       <input
           className='bg-blue-400 focus:outline-none p-5 rounded-md placeholder-white w-[300px]  h-[50px]'
           placeholder='Enter the calories'
-          value={cal}
+          value={cal} required
           onChange={(e) => setCal(e.target.value)}
           type='number'
         />
         <input
           className='bg-blue-400 focus:outline-none p-5 rounded-md placeholder-white w-[300px]  h-[50px]'
           placeholder='Enter the cal_fat'
-          value={calFat}
+          value={calFat} required
           onChange={(e) => setCalFat(e.target.value)}
           type='number'
         />
-        <input
+       </div>
+       <div className='grid  place-items-center gap-3   md:flex md:space-x-5'>
+       <input
           className='bg-blue-400 focus:outline-none p-5 rounded-md placeholder-white w-[300px]  h-[50px]'
           placeholder='Enter the saturated_fat'
-          value={sat}
+          value={sat} required
           onChange={(e) => setSat(e.target.value)}
           type='number'
         />
         <input
           className='bg-blue-400 focus:outline-none p-5 rounded-md placeholder-white w-[300px]  h-[50px]'
           placeholder='Enter the trans_fat'
-          value={tran}
+          value={tran} required
           onChange={(e) => setTran(e.target.value)}
           type='number'
         />
-        <input
+       </div>
+     <div className='grid  place-items-center gap-3   md:flex md:space-x-5'>
+     <input
           className='bg-blue-400 focus:outline-none p-5 rounded-md placeholder-white w-[300px]  h-[50px]'
           placeholder='Enter the cholesterol'
-          value={chol}
+          value={chol} required
           onChange={(e) => setChol(e.target.value)}
           type='number'
         />
         <input
           className='bg-blue-400 focus:outline-none p-5 rounded-md placeholder-white w-[300px]  h-[50px]'
           placeholder='Enter the sodium'
-          value={sodium}
+          value={sodium} required
           onChange={(e) => setSodium(e.target.value)}
           type='number'
         />
-        <input
+     </div>
+       <div className='grid  place-items-center gap-3   md:flex md:space-x-5'>
+         <input
           className='bg-blue-400 focus:outline-none p-5 rounded-md placeholder-white w-[300px]  h-[50px]'
           placeholder='Enter the total_carb'
-          value={carb}
+          value={carb} required
           onChange={(e) => setCarb(e.target.value)}
           type='number'
         />
-        <form onSubmit={submit}>
-          <button className='border-2 border-white' type='submit'>
+       </div>
+        <form className='flex justify-center' onSubmit={submit}>
+          <button className='border-2 w-[300px] border-white' type='submit'>
             SUBMIT
           </button>
         </form>
       </div>
+      
       {result && (
-        <div className='text-[20px]'>
-          <p>Result: {result.safety}</p>
-          <p>Predicted Value: {result.predicted_value}</p>
-        </div>
+       (result.safety=="Safe"?  <div className=' p-5 rounded-md bg-green-400 text-white hover:scale-125 text-[20px] duration-700'>
+       <p className='text-center'>Result: {result.safety}</p>
+       <p>You are good to go!</p>
+     </div>:<div className=' p-5 bg-red-500 rounded-md  text-white hover:scale-125 text-[20px] duration-700'>
+       <p className='text-center'>Result: {result.safety}</p>
+       <p>Think before using it!!!</p>
+     </div>)
       )}
+      
     </div>
    </>
   );
