@@ -3,10 +3,8 @@ import Tilt from 'react-tilt';
 const Help = () => {
   return (
     <div className='grid text-[20px] gap-10   sm:grid-cols-2 md:grid-cols-3'>
-         <Tilt options={{ max: 25, scale: 1.05 }}>
-         <div className='border-2 rounded-lg border-white p-3'><p className='text-center underline text-[25px]'>Calories (kcal)</p> Calories are a measure of the energy content in food. The body uses calories from food for various functions, including physical activity, maintaining body temperature, and basic physiological processes.</div>
-         </Tilt>
-
+        
+<div className='border-2 rounded-lg border-white p-3'><p className='text-center underline text-[25px]'>Calories (kcal)</p> Calories are a measure of the energy content in food. The body uses calories from food for various functions, including physical activity, maintaining body temperature, and basic physiological processes.</div>
 <div className='border-2 rounded-lg border-white p-3'> <p className='text-center underline text-[25px]'>Calories from Fat</p> This represents the portion of total calories in a food item that comes from fats. It's a subcategory of total calories and indicates how much energy is derived from fats.</div>
 <div className='border-2 rounded-lg border-white p-3'> <p className='text-center underline text-[25px]'>Saturated Fat</p> Saturated fat is a type of dietary fat. Consuming too much saturated fat can raise levels of LDL cholesterol (often referred to as "bad" cholesterol) in the blood, which may increase the risk of heart disease.</div>
 <div className='border-2 rounded-lg border-white p-3'><p className='text-center underline text-[25px]'>Trans Fat</p>Trans fat is a type of unsaturated fat that can have detrimental health effects. It is often found in processed and fried foods. High intake of trans fat has been associated with an increased risk of heart disease.</div>
