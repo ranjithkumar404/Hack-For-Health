@@ -45,7 +45,7 @@ const Home = () => {
     const carbValue = parseInt(carb, 10);
 
     axios
-      .post(' http://127.0.0.1:5000/predict', {
+      .post(' https://hack-for-health-tau.vercel.app/predict', {
         calories: calValue,
         cal_fat: calFatValue,
         saturated_fat: satFatValue,
