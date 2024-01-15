@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const { spawn } = require('child_process');
-
+// const { spawn } = require('child_process');
+let {PythonShell} = require('python-shell')
 const app = express();
 const PORT = 5000;
 const cors = require('cors');
@@ -9,7 +9,7 @@ app.use(cors());
 
 app.use(bodyParser.json());
 
-// Endpoint to handle predictions
+//Endpoint to handle predictions
 app.post('/predict', (req, res) => {
   const { calories, calories_from_fat, saturated_fat, trans_fat, cholesterol, sodium, total_carb } = req.body;
 
