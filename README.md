@@ -11,11 +11,11 @@ Develop a health-centric machine learning solution that evaluates the safety of 
 - Styling: Tailwind CSS
 
 ### Backend
-- Framework: Express.js
+- Framework: Flask
 
 ### Machine Learning
 - Language: Python
-- Libraries: [Insert ML Libraries Used]
+- 
 
 ## Getting Started
 
